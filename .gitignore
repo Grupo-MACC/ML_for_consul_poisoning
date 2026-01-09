@@ -1,0 +1,29 @@
+# Python cache & compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE / Editor
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Conda / virtual environments (optional, but good hygiene)
+venv/
+env/
+.venv/
+.env
+conda-meta/
+envs/
+
+# Logs
+*.log
+logs/
+
+# OS-specific
+Thumbs.db

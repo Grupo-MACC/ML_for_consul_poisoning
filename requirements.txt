@@ -5,3 +5,4 @@ scikit-learn
 seaborn
 plotly
 nbformat>=4.2.1
+kaleido

@@ -51,6 +51,11 @@ from .diagnostics import (
     plot_temporal_attack_distribution,
     compare_labeling_strategies
 )
+from .window_parameter_optimizer import (
+    optimize_window_parameters,
+    OptimizationResult
+)
+
 
 __version__ = '1.0.0'
 __author__ = 'Network Security Analysis'
@@ -68,5 +73,7 @@ __all__ = [
     'visualize_window_distribution',
     'diagnose_label_distribution',
     'plot_temporal_attack_distribution',
-    'compare_labeling_strategies'
+    'compare_labeling_strategies',
+    'optimize_window_parameters',
+    'OptimizationResult'
 ]

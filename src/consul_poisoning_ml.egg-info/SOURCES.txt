@@ -11,3 +11,4 @@ src/sliding_window/config.py
 src/sliding_window/diagnostics.py
 src/sliding_window/features.py
 src/sliding_window/utils.py
+src/sliding_window/window_parameter_optimizer.py

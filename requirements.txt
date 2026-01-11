@@ -6,3 +6,6 @@ seaborn
 plotly
 nbformat>=4.2.1
 kaleido
+scikit-learn-extra
+hdbscan
+umap-learn

@@ -12,3 +12,6 @@ src/sliding_window/diagnostics.py
 src/sliding_window/features.py
 src/sliding_window/utils.py
 src/sliding_window/window_parameter_optimizer.py
+src/visualization/__init__.py
+src/visualization/hdbscan_params.py
+src/visualization/umap.py

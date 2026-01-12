@@ -9,3 +9,4 @@ kaleido
 scikit-learn-extra
 hdbscan
 umap-learn
+joblib

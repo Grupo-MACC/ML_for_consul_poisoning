@@ -15,4 +15,4 @@ src/sliding_window/window_parameter_optimizer.py
 src/visualization/__init__.py
 src/visualization/gmm_params.py
 src/visualization/hdbscan_params.py
-src/visualization/umap.py
+src/visualization/my_umap.py

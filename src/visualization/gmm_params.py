@@ -11,6 +11,8 @@ from sklearn.metrics import (
     completeness_score,
     v_measure_score
 )
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import PowerTransformer, StandardScaler
 
 
 def plot_gmm_silhouette(ax, X, labels, title, max_height=800):
@@ -22,7 +24,7 @@ def plot_gmm_silhouette(ax, X, labels, title, max_height=800):
     ax : matplotlib.axes.Axes
         Eje donde dibujar
     X : array-like
-        Datos originales
+        Datos escalados (deben estar en la misma escala que usó el clustering)
     labels : array-like
         Etiquetas de clustering
     title : str
@@ -76,7 +78,6 @@ def plot_gmm_silhouette(ax, X, labels, title, max_height=800):
 
     return sil_avg
 
-
 def compare_gmm_params(X, param_grid, y_true=None, covariance_type='full', 
                       reg_covar=1e-6, random_state=42, n_cols=2, figsize_per_row=4):
     """
@@ -109,6 +110,15 @@ def compare_gmm_params(X, param_grid, y_true=None, covariance_type='full',
     fig : matplotlib.figure.Figure
         Figura generada
     """
+    # CORRECCIÓN: Crear el pipeline de preprocesamiento UNA VEZ
+    print("Aplicando transformaciones a los datos...")
+    preprocessor = Pipeline([
+        ('power_transform', PowerTransformer(method='yeo-johnson', standardize=False)),
+        ('scaler', StandardScaler())
+    ])
+    
+    X_transformed = preprocessor.fit_transform(X)
+    
     n_rows = int(np.ceil(len(param_grid) / n_cols))
 
     fig, axes = plt.subplots(
@@ -119,22 +129,26 @@ def compare_gmm_params(X, param_grid, y_true=None, covariance_type='full',
     )
 
     axes = axes.flatten()
-
     results = []
 
     for ax, n_comp in zip(axes, param_grid):
+        print(f"Procesando n_components={n_comp}...")
+        
+        # CORRECCIÓN: Usar GMM directamente sobre datos ya transformados
         gmm = GaussianMixture(
             n_components=n_comp,
             covariance_type=covariance_type,
             reg_covar=reg_covar,
             random_state=random_state
         )
+        
+        # CORRECCIÓN: Usar datos transformados
+        labels = gmm.fit_predict(X_transformed)
 
-        labels = gmm.fit_predict(X)
-
+        # CORRECCIÓN: Calcular silhouette sobre datos transformados
         sil = plot_gmm_silhouette(
             ax,
-            X,
+            X_transformed,  # Usar datos transformados
             labels,
             title=f"n_components={n_comp}"
         )
@@ -144,9 +158,9 @@ def compare_gmm_params(X, param_grid, y_true=None, covariance_type='full',
             "covariance_type": covariance_type,
             "silhouette": sil,
             "n_clusters": len(set(labels)),
-            "bic": gmm.bic(X),
-            "aic": gmm.aic(X),
-            "log_likelihood": gmm.score(X) * len(X)  # score devuelve promedio
+            "bic": gmm.bic(X_transformed),  # CORRECCIÓN: usar datos transformados
+            "aic": gmm.aic(X_transformed),  # CORRECCIÓN: usar datos transformados
+            "log_likelihood": gmm.score(X_transformed) * len(X_transformed)  # CORRECCIÓN
         }
         
         # Si tenemos etiquetas verdaderas, calcular métricas supervisadas

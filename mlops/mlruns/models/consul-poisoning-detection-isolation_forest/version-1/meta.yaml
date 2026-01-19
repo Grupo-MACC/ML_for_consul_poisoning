@@ -1,0 +1,15 @@
+creation_timestamp: 1768832940745
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1768832940745
+model_id: m-7499eded8e4b4b8ea397f67201ba2dc5
+name: consul-poisoning-detection-isolation_forest
+run_id: 335e0a83307b4368ab3a018a82a2988b
+run_link: null
+source: models:/m-7499eded8e4b4b8ea397f67201ba2dc5
+status: READY
+status_message: null
+storage_location: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/models/m-7499eded8e4b4b8ea397f67201ba2dc5/artifacts
+user_id: null
+version: 1

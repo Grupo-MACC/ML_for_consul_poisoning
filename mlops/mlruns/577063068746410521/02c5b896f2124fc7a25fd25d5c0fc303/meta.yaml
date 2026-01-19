@@ -1,0 +1,14 @@
+artifact_uri: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/02c5b896f2124fc7a25fd25d5c0fc303/artifacts
+end_time: 1768832830909
+entry_point_name: ''
+experiment_id: '577063068746410521'
+lifecycle_stage: active
+run_id: 02c5b896f2124fc7a25fd25d5c0fc303
+run_name: IsoForest_n100_sampauto_contauto
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768832827411
+status: 3
+tags: []
+user_id: gorka

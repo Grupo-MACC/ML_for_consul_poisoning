@@ -1,0 +1,10 @@
+artifact_location: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/models/m-122f937b5def432baa7e2600477d0e4f/artifacts
+creation_timestamp: 1768832792559
+experiment_id: '577063068746410521'
+last_updated_timestamp: 1768832795294
+model_id: m-122f937b5def432baa7e2600477d0e4f
+model_type: null
+name: model
+source_run_id: 1b2a5408bfc245acaa910c5d6cea9e34
+status: 2
+status_message: null

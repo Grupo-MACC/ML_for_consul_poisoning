@@ -1,0 +1,14 @@
+artifact_uri: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/6ddf2938848944b7982769869733648b/artifacts
+end_time: 1768832098456
+entry_point_name: ''
+experiment_id: '577063068746410521'
+lifecycle_stage: active
+run_id: 6ddf2938848944b7982769869733648b
+run_name: GMM_n3_diag
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768832070810
+status: 3
+tags: []
+user_id: gorka

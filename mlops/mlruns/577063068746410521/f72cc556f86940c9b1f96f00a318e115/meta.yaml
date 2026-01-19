@@ -1,0 +1,14 @@
+artifact_uri: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/f72cc556f86940c9b1f96f00a318e115/artifacts
+end_time: 1768832433092
+entry_point_name: ''
+experiment_id: '577063068746410521'
+lifecycle_stage: active
+run_id: f72cc556f86940c9b1f96f00a318e115
+run_name: HDBSCAN_size80_manhattan
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768832374077
+status: 3
+tags: []
+user_id: gorka

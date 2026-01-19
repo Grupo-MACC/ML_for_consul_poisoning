@@ -1,0 +1,6 @@
+artifact_location: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521
+creation_time: 1768831919357
+experiment_id: '577063068746410521'
+last_update_time: 1768831919357
+lifecycle_stage: active
+name: consul-poisoning-detection

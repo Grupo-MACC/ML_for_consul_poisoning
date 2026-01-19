@@ -1,0 +1,8 @@
+aliases:
+  production: '1'
+creation_timestamp: 1768832940653
+deployment_job_id: null
+deployment_job_state: null
+description: Best ISOLATION_FOREST model for Consul Poisoning Detection
+last_updated_timestamp: 1768832940768
+name: consul-poisoning-detection-isolation_forest

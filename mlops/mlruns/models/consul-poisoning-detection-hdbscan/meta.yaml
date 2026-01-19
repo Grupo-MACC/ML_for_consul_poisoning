@@ -1,0 +1,7 @@
+aliases: {}
+creation_timestamp: 1768832940539
+deployment_job_id: null
+deployment_job_state: null
+description: Best HDBSCAN model for Consul Poisoning Detection
+last_updated_timestamp: 1768832940651
+name: consul-poisoning-detection-hdbscan

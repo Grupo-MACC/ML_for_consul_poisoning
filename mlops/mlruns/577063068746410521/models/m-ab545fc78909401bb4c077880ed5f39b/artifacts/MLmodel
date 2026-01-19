@@ -1,0 +1,14 @@
+artifact_path: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/models/m-ab545fc78909401bb4c077880ed5f39b/artifacts
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+mlflow_version: 3.8.1
+model_id: m-ab545fc78909401bb4c077880ed5f39b
+model_size_bytes: 15560066
+model_uuid: m-ab545fc78909401bb4c077880ed5f39b
+prompts: null
+run_id: e1314fb748d9453ba3c8b992504ca8ad
+utc_time_created: '2026-01-19 14:22:32.548239'

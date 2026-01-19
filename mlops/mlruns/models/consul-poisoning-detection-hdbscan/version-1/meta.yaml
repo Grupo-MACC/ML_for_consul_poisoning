@@ -1,0 +1,15 @@
+creation_timestamp: 1768832940631
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1768832940631
+model_id: m-122f937b5def432baa7e2600477d0e4f
+name: consul-poisoning-detection-hdbscan
+run_id: 1b2a5408bfc245acaa910c5d6cea9e34
+run_link: null
+source: models:/m-122f937b5def432baa7e2600477d0e4f
+status: READY
+status_message: null
+storage_location: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/models/m-122f937b5def432baa7e2600477d0e4f/artifacts
+user_id: null
+version: 1

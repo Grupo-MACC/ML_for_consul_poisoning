@@ -1,0 +1,7 @@
+aliases: {}
+creation_timestamp: 1768832940336
+deployment_job_id: null
+deployment_job_state: null
+description: Best GMM model for Consul Poisoning Detection
+last_updated_timestamp: 1768832940538
+name: consul-poisoning-detection-gmm

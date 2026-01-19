@@ -1,0 +1,14 @@
+artifact_uri: file:///home/gorka/IA_pbl/ML_for_consul_poisoning/mlops/mlruns/577063068746410521/4e94bb2bed1849f89f504fa5dcf8d0cd/artifacts
+end_time: 1768832615767
+entry_point_name: ''
+experiment_id: '577063068746410521'
+lifecycle_stage: active
+run_id: 4e94bb2bed1849f89f504fa5dcf8d0cd
+run_name: HDBSCAN_size120_euclidean
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768832555318
+status: 3
+tags: []
+user_id: gorka

@@ -403,16 +403,186 @@ def create_model_section():
 
 def create_explanation_section():
     return html.Div([
-        html.H2('🔍 Prediction Explanations', className='mb-4'),
+        html.H2('🔍 Model Analysis & Explanations', className='mb-4'),
         
         dbc.Alert([
-            html.H5('Model Interpretability', className='alert-heading'),
+            html.H5('Model Comparison & Interpretability', className='alert-heading'),
             html.P([
-                'This section analyzes which features are most important for distinguishing ',
-                'between normal and potentially malicious behavior.'
+                'This section provides visual analysis of the different models used for anomaly detection: ',
+                'Isolation Forest, GMM, and HDBSCAN. It includes confusion matrices, UMAP visualizations, ',
+                'and performance comparisons.'
             ])
         ], color='info', className='mb-4'),
         
+        # Dataset Overview
+        html.H4('📊 Dataset Overview', className='mt-4 mb-3'),
+        dbc.Row([
+            dbc.Col([
+                create_card('Dataset Class Distribution', [
+                    html.P([
+                        'The dataset shows an imbalanced distribution between normal traffic and attacks, ',
+                        'which is typical in anomaly detection scenarios.'
+                    ], className='text-muted'),
+                    html.Img(
+                        src='/assets/dataset_proportion.png',
+                        style={'width': '100%', 'maxWidth': '600px'},
+                        className='img-fluid mx-auto d-block'
+                    )
+                ])
+            ])
+        ]),
+        
+        # Model Comparison Section
+        html.H4('🤖 Model Comparison', className='mt-4 mb-3'),
+        dbc.Row([
+            dbc.Col([
+                create_card('Classification Performance - All Models', [
+                    html.P([
+                        'Comparison of precision, recall, and F1-score across the three models. ',
+                        'Isolation Forest shows the best overall performance for anomaly detection.'
+                    ], className='text-muted'),
+                    html.Img(
+                        src='/assets/3modelosclasif.png',
+                        style={'width': '100%', 'maxWidth': '900px'},
+                        className='img-fluid mx-auto d-block'
+                    )
+                ])
+            ])
+        ]),
+        
+        dbc.Row([
+            dbc.Col([
+                create_card('ROC & Precision-Recall Curves', [
+                    html.P([
+                        'ROC and Precision-Recall curves comparing model performance. ',
+                        'Higher AUC indicates better discrimination between normal and attack traffic.'
+                    ], className='text-muted'),
+                    html.Img(
+                        src='/assets/3curvs.png',
+                        style={'width': '100%', 'maxWidth': '1000px'},
+                        className='img-fluid mx-auto d-block'
+                    )
+                ])
+            ])
+        ]),
+        
+        # Confusion Matrices Section
+        html.H4('📋 Confusion Matrices', className='mt-4 mb-3'),
+        dbc.Alert([
+            html.P([
+                'Confusion matrices show the classification results for each model. ',
+                'The goal is to maximize True Positives (attacks detected) while minimizing False Positives.'
+            ], className='mb-0')
+        ], color='light'),
+        
+        dbc.Row([
+            dbc.Col([
+                create_card('Isolation Forest', [
+                    html.Img(
+                        src='/assets/cmIF.png',
+                        style={'width': '100%'},
+                        className='img-fluid'
+                    ),
+                    html.P([
+                        'Isolation Forest provides excellent attack detection with minimal false positives.'
+                    ], className='text-muted mt-2')
+                ])
+            ], md=4),
+            dbc.Col([
+                create_card('GMM (Gaussian Mixture Model)', [
+                    html.Img(
+                        src='/assets/cmgmm.png',
+                        style={'width': '100%'},
+                        className='img-fluid'
+                    ),
+                    html.P([
+                        'GMM clusters traffic based on statistical distributions.'
+                    ], className='text-muted mt-2')
+                ])
+            ], md=4),
+            dbc.Col([
+                create_card('HDBSCAN', [
+                    html.Img(
+                        src='/assets/cmhdbscan.png',
+                        style={'width': '100%'},
+                        className='img-fluid'
+                    ),
+                    html.P([
+                        'HDBSCAN uses density-based clustering to identify anomalies.'
+                    ], className='text-muted mt-2')
+                ])
+            ], md=4)
+        ]),
+        
+        # UMAP Visualizations Section
+        html.H4('🗺️ UMAP Visualizations', className='mt-4 mb-3'),
+        dbc.Alert([
+            html.P([
+                'UMAP (Uniform Manifold Approximation and Projection) provides 2D visualizations ',
+                'of the high-dimensional feature space, revealing cluster structures and anomaly patterns.'
+            ], className='mb-0')
+        ], color='light'),
+        
+        dbc.Row([
+            dbc.Col([
+                create_card('Isolation Forest - Anomaly Scores', [
+                    html.Img(
+                        src='/assets/umapIF.png',
+                        style={'width': '100%'},
+                        className='img-fluid'
+                    ),
+                    html.P([
+                        'UMAP projection colored by Isolation Forest anomaly scores. ',
+                        'Higher scores (warmer colors) indicate more anomalous behavior.'
+                    ], className='text-muted mt-2')
+                ])
+            ], md=6),
+            dbc.Col([
+                create_card('Isolation Forest - Anomaly Distribution', [
+                    html.Img(
+                        src='/assets/anomalydistIF.png',
+                        style={'width': '100%'},
+                        className='img-fluid'
+                    ),
+                    html.P([
+                        'Distribution of anomaly scores showing clear separation between ',
+                        'normal traffic (low scores) and attacks (high scores).'
+                    ], className='text-muted mt-2')
+                ])
+            ], md=6)
+        ]),
+        
+        dbc.Row([
+            dbc.Col([
+                create_card('HDBSCAN Outlier Scores', [
+                    html.Img(
+                        src='/assets/umap_hdbscan_outlier_scores.png',
+                        style={'width': '100%'},
+                        className='img-fluid'
+                    ),
+                    html.P([
+                        'UMAP projection with HDBSCAN outlier probability scores.'
+                    ], className='text-muted mt-2')
+                ])
+            ], md=6),
+            dbc.Col([
+                create_card('GMM vs HDBSCAN Clustering', [
+                    html.Img(
+                        src='/assets/hdbscanVSgmmCluster.png',
+                        style={'width': '100%'},
+                        className='img-fluid'
+                    ),
+                    html.P([
+                        'Comparison of cluster assignments between GMM and HDBSCAN methods.'
+                    ], className='text-muted mt-2')
+                ])
+            ], md=6)
+        ]),
+        
+        html.Hr(className='my-4'),
+        
+        # Dynamic plots section
+        html.H4('📈 Interactive Feature Analysis', className='mt-4 mb-3'),
         dbc.Row([
             dbc.Col([
                 create_card('Feature Importance (Mean Difference)', [
@@ -644,9 +814,16 @@ def update_feature_comparison(_):
     # Calculate normalized mean differences
     means_normal = X[y == 0].mean()
     means_attack = X[y == 1].mean()
-    stds = X.std()
+    stds = X.std().replace(0, np.nan)  # Avoid division by zero
     
-    diff = ((means_attack - means_normal) / stds).sort_values()
+    diff = ((means_attack - means_normal) / stds)
+    
+    # Filter out NaN, Inf values and features with no meaningful difference
+    diff = diff.dropna()
+    diff = diff[~np.isinf(diff)]
+    diff = diff[diff != 0]  # Remove features with no difference
+    
+    diff = diff.sort_values()
     top_diff = pd.concat([diff.head(10), diff.tail(10)])
     
     colors = [COLORS['normal'] if v < 0 else COLORS['attack'] for v in top_diff.values]
@@ -940,8 +1117,9 @@ def update_model_comparison(_):
     Input('model-selector', 'value')
 )
 def update_cluster_distribution(model_name):
-    fig = make_subplots(rows=1, cols=len(predictions), 
-                    subplot_titles=[m.upper() for m in predictions.keys()])
+    predictions_filtered = {k: v for k, v in predictions.items() if k != "isolation_forest"}
+    fig = make_subplots(rows=1, cols=len(predictions_filtered), 
+                    subplot_titles=[m.upper() for m in predictions_filtered.keys()])
     
     for i, (name, preds) in enumerate(predictions.items(), 1):
         if name == "isolation_forest":
@@ -1104,6 +1282,6 @@ def update_attack_patterns(_):
 if __name__ == '__main__':
     print("\n" + "="*60)
     print("🚀 Starting Dash application...")
-    print("   Access at: http://127.0.0.]]1:8050")
+    print("   Access at: http://127.0.0.1:8050")
     print("="*60 + "\n")
     app.run(debug=True, port=8050)
